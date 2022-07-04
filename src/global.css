@@ -1,26 +1,67 @@
+:root {
+    --border-color: #30c5ff;
+    --border-color-hover: #3fcc59;
+    --body-bg-color: #17181c;
+  }
+
+html{
+    font-size: 16px;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: #fff;
-    background: #17181c;
+    background: var(--body-bg-color);
     font-family: sans-serif;
+    height: 100vh;
+    margin: 0;
 }
 
 header {
-    padding: 10px 30px;
+    padding: 0 2rem;
 }
 
 header h1 {
-    font-size: 40px;
+    font-family: cursive;
+    font-size: 2.5rem;
     font-weight: 800;
+    color: var(--border-color);
+} 
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.show-more-sources{
+    margin: 10px 0;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0px -1px 5px 0px var(--border-color), 0px 1px 5px 0px var(--border-color);
+    color: var(--border-color);
+    font-weight: 700;
+    transition: box-shadow 0.4s;
+}
+
+.show-more-sources:hover{
+    box-shadow: 0px -1px 10px 0px var(--border-color), 0px 1px 10px 0px var(--border-color);
 }
 
 footer {
+    padding: 0 2rem;
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    box-shadow: 0 -1.25rem 20px -1rem var(--border-color);
 }
 footer .copyright {
-    font-size: 14px;
+    font-size: 1rem;
     color: #333;
     text-align: center;
 }
@@ -33,3 +74,97 @@ footer .copyright a:hover {
 footer .copyright:before {
     content: '©';
 }
+
+.github__link {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    text-decoration: none; 
+    cursor: pointer;
+    color: var(--border-color);
+    transition: color 0.4s, box-shadow 0.4s, transform 0.4s;   
+}
+
+.rss__link,
+.github__logo{
+    display: inline-block;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(60%) sepia(76%) saturate(943%) hue-rotate(166deg) brightness(100%) contrast(104%);
+    transition: filter 0.4s;  
+}
+
+.github__logo{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url(./assets/svg/Octicons-mark-github.svg);
+}
+
+
+.github__link:hover {
+    color: var(--border-color-hover);
+    box-shadow: 0 0.5rem 0.5rem -0.4rem var(--border-color-hover);
+    transform: translateY(-0.25rem);   
+}
+
+.rss__link:hover,
+.github__link:hover .github__logo {
+    filter: invert(68%) sepia(33%) saturate(884%) hue-rotate(79deg) brightness(92%) contrast(90%);
+}
+
+.rss__link {
+    width: 6.25rem;
+    height: 2.5rem;
+    background-image: url(./assets/svg/rs_school_js.svg);
+    transition: filter 0.4s, box-shadow 0.4s, transform 0.4s;  
+}
+
+.rss__link:hover {
+    box-shadow: 0 0.5rem 0.5rem -0.4rem var(--border-color-hover);
+    transform: translateY(-0.25rem);
+}
+
+#newsItemTemp,
+#sourceItemTemp{
+    display: none;
+}
+
+#wt-sky-root{
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    html{
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    html{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 550px) {
+    html{
+        font-size: 10px;
+    }
+    .sources{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .source__item{
+        width: 38%;
+        min-width: 130px;
+    }
+}
+
+@media (max-width: 400px) {
+    .footer{
+        flex-wrap: wrap;
+    }
+}
+

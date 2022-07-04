@@ -1,20 +1,29 @@
 .sources {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
-    height: 120px;
+    height: 10vh;
+    padding: 1.25rem 0;
     overflow: auto;
     align-items: center;
-    font: 300 1em 'Fira Sans', sans-serif;
+    justify-content: space-between;
+    font: 300 1rem 'Fira Sans', sans-serif;
+    box-shadow: 0 1.25rem 1.25rem -1rem var(--border-color) inset,
+                0 -1.25rem 1.25rem -1rem var(--border-color) inset;
+    transition: height 0.4s;
+}
+
+.show-sources {
+    height: 60vh;
 }
 
 .source__item {
     background: none;
-    border: 2px solid #30c5ff;
+    border: 2px solid var(--border-color);
     font: inherit;
     line-height: 1;
-    margin: 0.5em;
-    padding: 1em 2em;
+    margin: 0.5rem;
+    padding: 1rem 2em;
     color: #70d6ff;
     transition: 0.25s;
     cursor: pointer;
@@ -22,13 +31,15 @@
 
 .source__item:hover,
 .source__item:focus {
-    border-color: #3fcc59;
+    border-color: var(--border-color-hover);
     color: #69db7e;
-    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
-    transform: translateY(-0.25em);
+    box-shadow: 0 0.5rem 0.5rem -0.4rem var(--border-color-hover);
+    transform: translateY(-0.25rem);
 }
 
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;
 }
+
+
