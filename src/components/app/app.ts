@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-import { IDataSource, IData } from '../typescript/interfaces';
+import type { IDataSource, IData } from '../typescript/interfaces';
 
 class App {
     private controller: AppController;

@@ -1,4 +1,4 @@
-import { OptionType, EndpointType } from './type';
+import { OptionType, EndpointType, DataItemAuthorAndImgType, DataItemSourceType, DataSourceItemType } from './type';
 
 export interface IApiKey {
     readonly apiKey: string;
@@ -10,20 +10,11 @@ export interface IGetRespParam {
 }
 
 export interface IUrlOptions {
-    [propName: string]: string;
+    [optionName: string]: string;
 }
 
-interface IDataItemSource {
-    id: string | null;
-    name: string | null;
-}
-
-interface IDataItemAuthorAndImg {
-    urlToImage: string | null;
-    author: string | null;
-}
-export interface IDataItem extends Partial<IDataItemAuthorAndImg> {
-    source: IDataItemSource;
+export interface IDataItem extends Partial<DataItemAuthorAndImgType> {
+    source: DataItemSourceType;
     title: string;
     url: string;
     publishedAt: string;
@@ -39,12 +30,5 @@ export interface IData {
 
 export interface IDataSource {
     status: string;
-    sources: Array<IDataSourceItem>;
-}
-export interface IDataSourceItem extends Pick<IDataItem, 'description' | 'url'> {
-    id: string;
-    name: string;
-    category: string;
-    language: string;
-    country: string;
+    sources: Array<DataSourceItemType>;
 }

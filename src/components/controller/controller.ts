@@ -1,5 +1,5 @@
 import AppLoader from './appLoader';
-import { IDataSource, IData } from '../typescript/interfaces';
+import type { IDataSource, IData } from '../typescript/interfaces';
 
 class AppController extends AppLoader {
     getSources(callback: (data?: IDataSource) => void): void {
@@ -17,7 +17,8 @@ class AppController extends AppLoader {
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
-                const sourceId = target.getAttribute('data-source-id') as string;
+                const sourceId = target.getAttribute('data-source-id');
+                if (typeof sourceId !== 'string') return;
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(

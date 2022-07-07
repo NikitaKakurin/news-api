@@ -1,6 +1,6 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { IDataSource, IData } from '../typescript/interfaces';
+import type { IDataSource, IData } from '../typescript/interfaces';
 
 export class AppView {
     private news: News;

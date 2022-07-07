@@ -1,5 +1,5 @@
-import { IApiKey, IGetRespParam, IUrlOptions } from '../typescript/interfaces';
-import { AllDataType, EndpointType, OptionType } from '../typescript/type';
+import type { IApiKey, IGetRespParam, IUrlOptions } from '../typescript/interfaces';
+import type { AllDataType, EndpointType, OptionType } from '../typescript/type';
 import { ErrorsCode } from '../typescript/enum';
 
 class Loader {

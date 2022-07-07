@@ -29,11 +29,13 @@ header h1 {
     font-weight: 800;
     color: var(--border-color);
 } 
+
 .main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .show-more-sources{
     margin: 10px 0;
     width: 100px;
@@ -60,17 +62,21 @@ footer {
     justify-content: space-between;
     box-shadow: 0 -1.25rem 20px -1rem var(--border-color);
 }
+
 footer .copyright {
     font-size: 1rem;
     color: #333;
     text-align: center;
 }
+
 footer .copyright a {
     color: #444;
 }
+
 footer .copyright a:hover {
     color: #555;
 }
+
 footer .copyright:before {
     content: '©';
 }
@@ -101,7 +107,6 @@ footer .copyright:before {
     height: 2.5rem;
     background-image: url(./assets/svg/Octicons-mark-github.svg);
 }
-
 
 .github__link:hover {
     color: var(--border-color-hover);
@@ -139,7 +144,6 @@ footer .copyright:before {
     html{
         font-size: 14px;
     }
-
 }
 
 @media (max-width: 768px) {
@@ -152,10 +156,12 @@ footer .copyright:before {
     html{
         font-size: 10px;
     }
+
     .sources{
         width: 100%;
         justify-content: space-evenly;
     }
+
     .source__item{
         width: 38%;
         min-width: 130px;

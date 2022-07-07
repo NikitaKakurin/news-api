@@ -1,25 +1,28 @@
 import './sources.css';
-import { IDataSourceItem } from '../../typescript/interfaces';
+import type { DataSourceItemType } from '../../typescript/type';
 
 class Sources {
-    container: HTMLElement;
-    showMore: HTMLElement;
+    container: HTMLElement | null;
+    showMore: HTMLElement | null;
     isSourcesDraw: boolean;
     constructor() {
-        this.container = document.querySelector('.sources') as HTMLElement;
-        this.showMore = document.querySelector('.show-more-sources') as HTMLElement;
+        this.container = document.querySelector('.sources');
+        this.showMore = document.querySelector('.show-more-sources');
         this.isSourcesDraw = false;
     }
 
-    draw(data: IDataSourceItem[]): void {
+    draw(data: DataSourceItemType[]): void {
+        if (!this.container) throw new Error('this.container is null');
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
-        data.forEach((item: IDataSourceItem) => {
+        data.forEach((item: DataSourceItemType): void => {
             const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLElement;
-
-            (sourceClone.querySelector('.source__item-name') as HTMLElement).textContent = item.name;
-            (sourceClone.querySelector('.source__item') as HTMLElement).setAttribute('data-source-id', item.id);
+            const sourceItemName = sourceClone.querySelector('.source__item-name');
+            const sourceItem = sourceClone.querySelector('.source__item');
+            if (!sourceItemName || !sourceItem) throw new Error('sourceItemName or sourceItem is null');
+            sourceItemName.textContent = item.name;
+            sourceItem.setAttribute('data-source-id', item.id);
 
             fragment.append(sourceClone);
         });
@@ -29,6 +32,7 @@ class Sources {
     }
 
     showHide(): void {
+        if (!this.showMore) throw new Error('this.showMore is null');
         if (!this.isSourcesDraw) {
             return;
         }
@@ -40,11 +44,13 @@ class Sources {
     }
 
     hide(): void {
+        if (!this.showMore || !this.container) throw new Error('this.showMore or this.container is null');
         this.showMore.textContent = 'Show more';
         this.container.classList.remove('show-sources');
     }
 
     show(): void {
+        if (!this.showMore || !this.container) throw new Error('this.showMore or this.container is null');
         this.showMore.textContent = 'Hide';
         this.container.classList.add('show-sources');
     }
